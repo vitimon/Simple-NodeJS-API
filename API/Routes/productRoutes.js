@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const Category = require('../Models/Category')
+const Product = require('../Models/Product')
 
 router.get('/', async (req, res) => {
     try{
-        const categories = await Category.find()
-        res.status(200).json(categories)
+        const products = await Product.find()
+        res.status(200).json(products)
 
     }catch(error){
         console.log("ERROR FOUND")
@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     const id = req.params.id
     try{
-        const category = await Category.findOne({_id: id})
+        const product = await Product.findOne({_id: id})
         //TRATAR REQUISIÇÕES
-        res.status(200).json(category)
+        res.status(200).json(product)
 
     }catch(error){
         console.log("ERROR FOUND")
@@ -26,11 +26,11 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const {name} = req.body
-    const category = {name}
+    const {name,category} = req.body
+    const product = {name,category}
     try {
-        await Category.create(category)
-        console.log(`Creating Category ${name}`)
+        await Product.create(product)
+        console.log(`Creating Product ${name}`)
         res.status(201).json({message: `Sucefull created ${name}`})
     }catch(error){
         console.log("ERROR FOUND")
@@ -40,11 +40,11 @@ router.post('/', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     const id = req.params.id
-    const {name} = req.body
-    const category = {name}
+    const {name,category} = req.body
+    const product = {name,category}
     try {
-        await Category.updateOne({_id: id},category)
-        console.log(`Updating Category ${name}`)
+        await Product.updateOne({_id: id},product)
+        console.log(`Updating Product ${name}`)
         res.status(201).json({message: `Sucefull updated ${name}`})
     }catch(error){
         console.log("ERROR FOUND")
@@ -55,7 +55,7 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const id = req.params.id
     try {
-        await Category.deleteOne({_id: id})
+        await Product.deleteOne({_id: id})
         res.status(201).json({message: `Sucefull deleted`})
     }catch(error){
         console.log("ERROR FOUND")

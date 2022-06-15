@@ -2,10 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
-const Product = require('./Models/Product')
-const Brand = require('./Models/Brand')
-
-
 app.use(
     express.urlencoded({
         extended: true,
@@ -15,8 +11,12 @@ app.use(
 app.use(express.json())
 
 const categoryRoutes = require('./Routes/categoryRoutes')
+const productRoutes = require('./Routes/productRoutes')
+const brandRoutes = require('./Routes/brandRoutes')
 
 app.use('/category',categoryRoutes)
+app.use('/product',productRoutes)
+app.use('/brand',brandRoutes)
 
 app.get('/',(req, res) => {
     res.json({message: "working"})
