@@ -29,6 +29,6 @@ mongoose
     .connect('mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000')
     .then(() => {
         console.log("connecting to MongoDB")
-        app.listen(3000)
+        app.listen(5000)
     })
     .catch((err) => console.log(err))
