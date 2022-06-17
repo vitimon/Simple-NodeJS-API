@@ -3,19 +3,19 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 const data = [
   {
-    name: 'January',
+    month: 'January',
     sales: 100
   },
   {
-    name: 'February',
+    month: 'February',
     sales: 50
   },
   {
-    name: 'March',
+    month: 'March',
     sales: 150
   },
   {
-    name: 'April',
+    month: 'April',
     sales: 180
   }
 ];
@@ -27,7 +27,7 @@ export default class Chart extends PureComponent {
         <BarChart
           width={1300}
           height={400}
-          data={data}
+          data={this.props.data}
           margin={{
             top: 5,
             right: 30,
@@ -35,8 +35,8 @@ export default class Chart extends PureComponent {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <CartesianGrid strokeDasharray="3" />
+          <XAxis dataKey="month" />
           <YAxis />
           <Tooltip />
           <Legend />

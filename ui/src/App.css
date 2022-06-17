@@ -33,10 +33,19 @@
   align-items: stretch;
 }
 
-.App-selectors p{
+.App-selectors label{
   background-color: rgb(255, 255, 255);
   display: inline-block;
   flex-direction: line;
   align-items: stretch;
-  margin-left: 10Vh;
+  margin-left: 20Vh;
+}
+
+.App-selectors select{
+  background-color: rgb(255, 255, 255);
+  max-height: 3Vh;
+  display: inline-block;
+  flex-direction: line;
+  align-items: stretch;
+  margin-right: 10Vh;
 }
