@@ -1,6 +1,7 @@
 import './App.css';
 import axios from "axios";
 import Navbar from './Navbar';
+import Chart from './Chart';
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
         <p>Product:</p>
         <p>Brand:</p>
       </selectors>
+      <h2>Sales By Month for:</h2>
+      <Chart/>
     </div>
   );
 } 
