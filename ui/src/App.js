@@ -35,22 +35,22 @@ function App() {
       <selectors className="App-selectors">
       <label for="category">category:</label>
 <select name="category" id="category">
-  <option value="Ropa">Ropa</option>
-  <option value="Acessorio">Acessorio</option>
+  <option value="ropa">Ropa</option>
+  <option value="acessorio">Acessorio</option>
 </select>
-<label for="category">product:</label>
-<select name="category" id="category">
-  <option value="Ropa">Ropa</option>
-  <option value="Acessorio">Acessorio</option>
+<label for="product">product:</label>
+<select name="product" id="product">
+  <option value="camisa">Camisa</option>
+  <option value="chapeu">Chapeu</option>
 </select>
-<label for="category">Brand:</label>
-<select name="category" id="category">
-  <option value="Ropa">Ropa</option>
-  <option value="Acessorio">Acessorio</option>
+<label for="brand">brand:</label>
+<select name="brand" id="brand">
+  <option value="aldeua">Aldeia</option>
+  <option value="nike">Nike</option>
 </select>
       </selectors>
       <h2>Sales By Month for:</h2>
-      <Chart data = {mockData[2].sales}/>
+      <Chart data = {mockData[7].sales}/>
     </div>
   );
 } 
