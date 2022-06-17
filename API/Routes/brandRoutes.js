@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Brand = require('../Models/Brand')
+const Product = require('../Models/Product')
 
 router.get('/', async (req, res) => {
     try{
@@ -26,9 +27,18 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const {name, product} = req.body
-    const brand = {name, product}
+    const {name, product, category} = req.body
+    const brand = {name, product, category}
     try {
+        const brands = await Brand.find()
+        const products = await Product.find()
+        for(let i=0; i<brands.length; i++){
+            if(brands[i].name == name & brands[i].product == product & brands[i],category == category){
+                console.log("Already exists an entry with the same Category, Product,Brand")
+                res.status(422).json({message: "Already exists an entry with the same Category, Product,Brand"})
+                return
+            }
+        }
         await Brand.create(brand)
         console.log(`Creating Brand ${name}`)
         res.status(201).json({message: `Sucefull created ${name}`})

@@ -10,10 +10,12 @@ app.use(
 
 app.use(express.json())
 
+const itemRoutes = require('./Routes/itemRoutes')
 const categoryRoutes = require('./Routes/categoryRoutes')
 const productRoutes = require('./Routes/productRoutes')
 const brandRoutes = require('./Routes/brandRoutes')
 
+app.use('/item',itemRoutes)
 app.use('/category',categoryRoutes)
 app.use('/product',productRoutes)
 app.use('/brand',brandRoutes)
