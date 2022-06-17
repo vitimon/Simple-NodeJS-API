@@ -62,7 +62,7 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const id = req.params.id
     try {
-        await Category.deleteOne({_id: id})
+        await Item.deleteOne({_id: id})
         res.status(201).json({message: `Sucefull deleted`})
     }catch(error){
         console.log("ERROR FOUND")
